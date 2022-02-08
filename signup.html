@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SignUp</title>
+        <link href="./style.css" rel="stylesheet">
+    </head>
+    <body>
+        <form>
+            <div class="container">
+                <label for="uname"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="uname" required>
+            
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+
+                <label for="repsw"><b>Repeat Password</b></label>
+                <input type="password" placeholder="Enter Password" name="repsw" required>
+
+                <label for="birthday"><b>Date of Birth</b></label><br>
+                <input type="date" id="birthday" name="birthday" required><br><br>
+                <label for="email"><b>Email</b></label>
+                <input type="email" id="email" name="email" placeholder="Enter email" required>
+
+                <p><b>Gender</b></p>
+                <input id="gender" name="gender" value="male" type="radio">
+                <label for="gender">Male</label>
+                <input id="gender" name="gender" value="female" type="radio">
+                <label for="gender">Female</label>
+                <input id="gender" name="gender" value="other" type="radio">
+                <label for="gender">Other</label><br><br>
+
+                <label for="phone"><b>Phone Number</b></label>
+                <input type="tel" name="phone" id="phone" pattern="+91[0-9]{10}" placeholder="+910123456789">
+
+                <p><b>Select course interested in:</b></p>
+                <input type="checkbox" id="course1" name="course1" value="java">
+                <label for="vehicle1">Java</label><br>
+                <input type="checkbox" id="course2" name="course2" value="html">
+                <label for="vehicle2">HTML</label><br>
+                <input type="checkbox" id="course3" name="course3" value="css">
+                <label for="vehicle3">CSS</label><br>
+                <input type="checkbox" id="course4" name="course4" value="git">
+                <label for="vehicle3">Git</label><br>
+                <input type="checkbox" id="course5" name="course5" value="javascript">
+                <label for="vehicle3">JavaScript</label>
+
+            
+                <button type="submit">SignUp</button>
+                <label>
+                <input type="checkbox" checked="checked" name="remember"> Remember me
+                </label>
+              </div>
+              <div class="container" style="background-color:#f1f1f1">
+                <button type="button" class="cancelbtn">Cancel</button>
+                <button type="button" class="signup"><a href="./login.html">Login</a></button>
+              </div>
+        </form>
+    </body>
+</html>
