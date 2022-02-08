@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Assignment1</title>
+    </head>
+    <body>
+        <h1>Assignment1</h1>
+        <p id="name"></p>
+        <input type="text" id="input" required>
+        <button onclick = "function1(' ,how are you?',function2)">Click here</button> 
+    </body>
+    <script >
+        let firstname=prompt("Enter first name:");
+        let lastname=prompt("Enter last name:");
+        let result=firstname.charAt(0)+lastname.charAt(0);
+
+        document.getElementById("name").innerHTML=result;
+        function function2(value){
+                var name = document.getElementById("input").value;
+                return 'hello '+name+value;
+            }
+        function function1(a,func){
+            alert(func(a));
+        }
+    </script>
+</html>
