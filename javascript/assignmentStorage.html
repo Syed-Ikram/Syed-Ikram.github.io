@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AssignmentStorage</title>
+    </head>
+    <body>
+        <h1>Assignment-Storage</h1>
+        <p>counter for Session storage</p>
+        <p id="demo">0</p>
+        <p><button onclick="clickCounter()" type="button">Count</button></p>
+
+        <p>counter for Local storage</p>
+        <p id="demo2">0</p>
+        <p><button onclick="clickCounter2()" type="button">Count</button></p>
+        
+    </body>
+    <script >
+        function clickCounter2() {
+            if (localStorage.clickcount) {
+                localStorage.clickcount = Number(localStorage.clickcount) + 1;
+            } else {
+                localStorage.clickcount = 1;
+            }
+            document.getElementById("demo2").innerHTML = localStorage.clickcount; 
+        }
+        function clickCounter() {
+            if (sessionStorage.clickcount) {
+                sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
+            } else {
+                sessionStorage.clickcount = 1;
+                }
+            document.getElementById("demo").innerHTML = sessionStorage.clickcount;
+        }
+    </script>
+</html>
