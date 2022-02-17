@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>demo1</title>
+    </head>
+    <body>
+        <p id="demo"></p>
+    </body>
+    <script >
+        var details =
+            [
+            {
+                customerName: "Chris",
+                customerAge: 32
+            },
+            {
+                customerName: "David",
+                customerAge: 26
+            },
+            {
+                customerName: "Bob",
+                customerAge: 29
+            },
+            {
+                customerName: "Carol",
+                customerAge: 25
+            }
+            ]
+
+    document.getElementById("demo").innerHTML=details;
+    var index = -1;
+    var needle = "David";
+    var filteredRes = details.find(function(item, i){
+    if(item.id === needle){
+    index = i;
+    return i;
+    }
+    });
+    
+    details.splice(index,1);
+    console.log(details);
+
+    </script>
+</html>
