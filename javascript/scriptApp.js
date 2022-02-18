@@ -9,7 +9,6 @@ function drag(ev) {
 function drop(ev) {
     ev.preventDefault();
     var tableId = ev.target.id;
-    index = Number(tableId.charAt(5));
     var item = ev.dataTransfer.getData("text");
     var price = Number(document.getElementById(item).getAttributeNode("value").value);
     addPrice(tableId,price);
@@ -18,11 +17,18 @@ function drop(ev) {
     displayItems(tableId,item,price);
 }
 function addPrice(tableId,price){
+    var index = Number(tableId.charAt(5));
     tableTotal[index-1]+=price;
     document.getElementById(tableId+"total").innerHTML=tableTotal[index-1];
 }
 function incCount(tableId){
+    var index = Number(tableId.charAt(5));
     tableItemCount[index-1]+=1;
+    document.getElementById(tableId+"ItemCount").innerHTML=tableItemCount[index-1];
+}
+function decCount(tableId){
+    var index = Number(tableId.charAt(5));
+    tableItemCount[index-1]-=1;
     document.getElementById(tableId+"ItemCount").innerHTML=tableItemCount[index-1];
 }
 function displayItems(tableId,item,price){
@@ -31,27 +37,55 @@ function displayItems(tableId,item,price){
     var itemList = JSON.parse(itemString);
     tableitems.innerHTML="";
     var text ="";
+    text+='<table><tr><th>Dishes</th><th>Price</th><th>Serving</th></tr>';
     for(var i = 0; i < itemList.length; i++){
-         text += "<p>"+itemList[i].name.toUpperCase()+"  "+itemList[i].price+" <button id='table1"+itemList[i].name+"' onclick='plusQuant(event)'>+</button>"+itemList[i].quantity+'</p><br>';
+        text += "<tr class='modalItem'><td>"+itemList[i].name.toUpperCase()+"</td><td>"+itemList[i].price+"</td><td><button id='"+tableId+itemList[i].name+"' class='myBtn' onclick='plusQuant(event)'>+</button>  "+itemList[i].quantity+"  <button class='myBtn' id='minus"+tableId+itemList[i].name+"' onclick='minusQuant(event)'>-</button></td></tr>";
         console.log(itemList[i].name+"  "+itemList[i].price+"  "+itemList[i].quantity);
-        /*var button = document.createElement("BUTTON");
-        var t = document.createTextNode("+");
-        button.appendChild(t);
-        tableitems.appendChild(button);
-        //button.setAttribute("onclick","plusQuant(i,tableId)");
-        button.onclick=plusQuant(i,tableId);*/
     }
+    text+="</table>";
     tableitems.innerHTML=text;
     tableitems.appendChild(document.createElement('br'));
     tableitems.appendChild(document.createTextNode("Total:"+tableTotal[tableId.charAt(5)-1]));
 }
 function plusQuant(ev){
     var id = ev.target.id;
-    console.log(id);
-    var itemString = sessionStorage.getItem(id);
-    //var itemList = JSON.parse(itemString);
-    //itemList[i].quantity++;
-    //console.log(itemList[i].name+"  "+itemList[i].price+"  "+itemList[i].quantity);
+    var tableId= id.substring(0,6);
+    var item= id.substring(6);
+    console.log(tableId+" "+item);
+    var itemString = sessionStorage.getItem(tableId);
+    var itemList = JSON.parse(itemString);
+    var i = findItem(itemList,item)
+    if(i>=0){
+        itemList[i].quantity+=1;
+    }
+    addPrice(tableId,itemList[i].price);
+    incCount(tableId);
+    itemString=JSON.stringify(itemList);
+    sessionStorage.setItem(tableId,itemString);
+    displayItems(tableId);    
+}
+function minusQuant(ev){
+    var id = ev.target.id;
+    var tableId= id.substring(5,11);
+    var item= id.substring(11);
+    console.log(tableId+" "+item);
+    var itemString = sessionStorage.getItem(tableId);
+    var itemList = JSON.parse(itemString);
+    var i = findItem(itemList,item);
+    var price=-itemList[i].price;
+    if(i>=0){
+        if(itemList[i].quantity===1){
+            itemList.splice(i,1);
+            console.log(itemList);
+        }else{
+            itemList[i].quantity-=1;
+        }        
+    }
+    addPrice(tableId,price);
+    decCount(tableId);
+    itemString=JSON.stringify(itemList);
+    sessionStorage.setItem(tableId,itemString);
+    displayItems(tableId);
 }
 function setItem(tableId,item,price){
     var itemString = sessionStorage.getItem(tableId);
@@ -104,7 +138,6 @@ function search(){
 }
 let tableTotal=[0,0,0,0];
 let tableItemCount=[0,0,0,0];
-var index;
 sessionStorage.setItem("table1","[]");
 sessionStorage.setItem("table2","[]");
 sessionStorage.setItem("table3","[]");

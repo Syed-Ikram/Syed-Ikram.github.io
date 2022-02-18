@@ -14,6 +14,10 @@
   padding-top: 10px;
 }
 
+/*#muttonbriyani{
+  background-image: url('./muttonbriyani.jpg');
+  background-size: 100% 100%;
+}*/
 .sidenav input[type=text] {
     padding: 10px;
     width:160px;
@@ -43,7 +47,7 @@
   border-width: 2px;
 }
 
-.table:hover , .myBtn:hover{
+.table:hover , .myBtn:hover,.myBtn1:hover{
   background-color: #818181;
 }
 body{
@@ -107,6 +111,7 @@ body{
   width: 80%;
 }
 
+
 /* The Close Button */
 .close {
   color: #aaaaaa;
@@ -121,7 +126,7 @@ body{
   text-decoration: none;
   cursor: pointer;
 }
-.myBtn{
+.myBtn, .myBtn1{
   padding: 5px;
   border: none;
   background-color: #161B21;
@@ -132,6 +137,11 @@ body{
   margin: 4px 2px;
   cursor: pointer;
 }
-.modal-content button{
+.modal-content .myBtn1{
   float:right;
 }
+table, th, td {
+  border: 1px solid;
+  text-align: center;
+}
+
