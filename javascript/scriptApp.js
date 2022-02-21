@@ -37,7 +37,7 @@ function displayItems(tableId,item,price){
     var itemList = JSON.parse(itemString);
     tableitems.innerHTML="";
     var text ="";
-    text+='<table><tr><th>Dishes</th><th>Price</th><th>Serving</th></tr>';
+    text+='<table><tr><th>Dish</th><th>Price</th><th>Serving</th></tr>';
     for(var i = 0; i < itemList.length; i++){
         text += "<tr class='modalItem'><td>"+itemList[i].name.toUpperCase()+"</td><td>"+itemList[i].price+"</td><td><button id='"+tableId+itemList[i].name+"' class='myBtn' onclick='plusQuant(event)'>+</button>  "+itemList[i].quantity+"  <button class='myBtn' id='minus"+tableId+itemList[i].name+"' onclick='minusQuant(event)'>-</button></td></tr>";
         console.log(itemList[i].name+"  "+itemList[i].price+"  "+itemList[i].quantity);
