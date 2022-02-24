@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+
+    <div id="mydiv"></div>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      function Hello() {
+        return <h1>Hello World!</h1>;
+      }
+      function getGreeting(user) {
+        if (user) {
+          return <h1>Hello, {formatName(user)}!</h1>;
+        }
+        return <h1>Hello, Stranger.</h1>;
+      }
+      function formatName(user) {
+      return user.firstName + ' ' + user.lastName;
+      }
+      const user = {
+      firstName: 'Syed',
+      lastName: 'Ikram'
+      };
+      ReactDOM.render(<Hello />, document.getElementById('root'));
+      ReactDOM.render(getGreeting(user), document.getElementById('mydiv'));
+    </script>
+
+  </body>
+</html>

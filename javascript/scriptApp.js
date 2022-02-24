@@ -143,9 +143,23 @@ sessionStorage.setItem("table2","[]");
 sessionStorage.setItem("table3","[]");
 sessionStorage.setItem("table4","[]");
 
-localStorage.setItem("muttonbriyani",150);
-localStorage.setItem("chickenbriyani",120);
-localStorage.setItem("chicken65",140);
-localStorage.setItem("chickentikka",160);
-localStorage.setItem("rumaliroti",15);
-localStorage.setItem("watterbottle",20);
+localStorage.setItem("mutton briyani",150);
+localStorage.setItem("chicken briyani",120);
+localStorage.setItem("chicken 65",140);
+localStorage.setItem("chicken tikka",160);
+localStorage.setItem("rumali roti",15);
+localStorage.setItem("watter bottle",20);
+localStorage.setItem("soft drink",20);
+function loadMenu(){
+    var menu1 = document.getElementsByClassName('menu')[0];
+    var text="";
+    for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        const id= key.split(" ").join("");
+        console.log(`${key}: ${localStorage.getItem(key)}`);
+        text += "<div class='item' id='"+id+"' value='"+localStorage.getItem(key)+"' draggable='true' ondragstart='drag(event)'><p class='itemName'>"+key.toUpperCase()+"</p><p class='itemPrice'>Price:"+localStorage.getItem(key)+"</p></div>";
+
+    }
+    menu1.innerHTML=text;
+}
+loadMenu();
