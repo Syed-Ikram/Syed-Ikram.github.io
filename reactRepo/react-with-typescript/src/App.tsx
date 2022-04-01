@@ -1,16 +1,14 @@
+import { Container } from '@mui/material';
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Hello from './components/assignment1';
-
+import ButtonComponent from './components/atoms/Button';
+import Navbar from './components/molecules/Navbar';
 function App() {
   return (
-    <div className="App">
-      <Hello name="ikram" age={21}/>
-      <Hello name="john" age={17}/>
-      <Hello name="jack" age={20}/>
-    </div>
-  );
+    <Container>
+      <ButtonComponent variant='contained' color='error' size='small' sx={{":hover":{bgcolor:"#0365F2",color:"#ffffff"}}}>Hello</ButtonComponent>
+      <Navbar />
+    </Container>
+    );
 }
 
 export default App;
