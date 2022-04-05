@@ -1,70 +1,67 @@
 {
-    "books":[
-        {
-            "author":"Kathleen Shannon and Emily",
-            "title":"Being Boss",
-            "state":"+ Add to Library",
-            "image":"http://127.0.0.1:8887/beingBoss.png",
-            "id":1
-        },
-        {
-            "author":"Jim Collins & Bill Lazier",
-            "title":"Beyond Entrepreneurship",
-            "state":"Finished",
-            "image":"http://127.0.0.1:8887/beyondEntrepreneurship.png",
-            "id":2
-        },
-        {
-            "author":"Steve Glaveski",
-            "title":"Employee to Entrepreneur",
-            "state":"Read Again",
-            "image":"http://127.0.0.1:8887/employeeToEntrepreneurship.png",
-            "id":3
-        },
-        {
-            "author":"Amanda Little",
-            "title":"The Fate of Food",
-            "state":"Read Again",
-            "image":"http://127.0.0.1:8887/theFateOfFood.png",
-            "id":4
-        },
-        {
-            "author":"Ryan Holiday, Stephen Hansel",
-            "title":"Lives of the Stoics",
-            "state":"Read Again",
-            "image":"http://127.0.0.1:8887/liveOfTheStoics.png",
-            "id":5
-        },
-        {
-            "author":"Debbie King",
-            "title":"Loving Your Business",
-            "state":"Read Again",
-            "image":"http://127.0.0.1:8887/lovingYourBusiness.png",
-            "id":6
-        },
-        {
-            "author":"Noreena Hertz",
-            "title":"The Lonely Century",
-            "state":"Read Again",
-            "image":"http://127.0.0.1:8887/theLonelyCentruy.png",
-            "id":7
-        },
-        {
-            "author":"Giada De Laurentiis",
-            "title":"Eat Better, Feel Better",
-            "state":"Read Again",
-            "image":"http://127.0.0.1:8887/eatBetterFeelBetter.png",
-            "id":8
-        },
-        {
-            "author":"James Moore",
-            "title":"Dropshipping",
-            "state":"Read Again",
-            "image":"http://127.0.0.1:8887/dropshipping.png",
-            "id":9
-        }       
-        
-        
-
-    ]
+  "books": [
+    {
+      "author": "Kathleen Shannon and Emily",
+      "title": "Being Boss",
+      "state": "Read Again",
+      "image": "http://127.0.0.1:8887/beingBoss.png",
+      "id": 1
+    },
+    {
+      "author": "Jim Collins & Bill Lazier",
+      "title": "Beyond Entrepreneurship",
+      "state": "Finished",
+      "image": "http://127.0.0.1:8887/beyondEntrepreneurship.png",
+      "id": 2
+    },
+    {
+      "author": "Steve Glaveski",
+      "title": "Employee to Entrepreneur",
+      "state": "Read Again",
+      "image": "http://127.0.0.1:8887/employeeToEntrepreneurship.png",
+      "id": 3
+    },
+    {
+      "author": "Amanda Little",
+      "title": "The Fate of Food",
+      "state": "Read Again",
+      "image": "http://127.0.0.1:8887/theFateOfFood.png",
+      "id": 4
+    },
+    {
+      "author": "Ryan Holiday, Stephen Hansel",
+      "title": "Lives of the Stoics",
+      "state": "Finished",
+      "image": "http://127.0.0.1:8887/liveOfTheStoics.png",
+      "id": 5
+    },
+    {
+      "author": "Debbie King",
+      "title": "Loving Your Business",
+      "state": "Finished",
+      "image": "http://127.0.0.1:8887/lovingYourBusiness.png",
+      "id": 6
+    },
+    {
+      "author": "Noreena Hertz",
+      "title": "The Lonely Century",
+      "state": "Read Again",
+      "image": "http://127.0.0.1:8887/theLonelyCentruy.png",
+      "id": 7
+    },
+    {
+      "author": "Giada De Laurentiis",
+      "title": "Eat Better, Feel Better",
+      "state": "Finished",
+      "image": "http://127.0.0.1:8887/eatBetterFeelBetter.png",
+      "id": 8
+    },
+    {
+      "author": "James Moore",
+      "title": "Dropshipping",
+      "state": "Read Again",
+      "image": "http://127.0.0.1:8887/dropshipping.png",
+      "id": 9
+    }
+  ]
 }

@@ -53,7 +53,7 @@ function App() {
         </Paper>
         <Tabs1 />
         <br></br>
-        <RenderBookCards />
+        <RenderBookCards state='Finished'/>
         {/** footer */}
        
         {/*

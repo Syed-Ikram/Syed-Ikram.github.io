@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from 'react';
+import React from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -9,23 +9,41 @@ import { Grid } from '@mui/material';
 import ButtonComponent from '../../atoms/Button';
 
 interface Props{
+    id:number;
     title:string;
     pic:string;
     author:string;
     state:string;
 }
 
-function BookCard(props:Props){ 
-  const [books,setBooks]=useState([]);
+const BookCard =(props:Props)=>{ 
+  var index = props.id ;
+  var bookState = props.state;
 
-    useEffect(()=>{
-        fetch('http://localhost:8000/books')
-        .then(res =>res.json())
-        .then(data => setBooks(data))
-    },[])
-   
+  const handleClick = ()=>{
+    // eslint-disable-next-line eqeqeq
+    if(bookState == "+ Add to Library")
+      bookState = "Finished"
+    // eslint-disable-next-line eqeqeq
+    else if(bookState == "Finished")
+      bookState = "Read Again"
+    else
+     bookState = "Finished"
+    
+    fetch('http://localhost:8000/books/'+index,{
+      method: 'PATCH',
+      body: JSON.stringify({
+        "state": bookState,
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    }).then((response) => response.json())
+    .then((json) => console.log(json));
+  }
+
   return (
-    <Card sx={{ maxWidth: 345 , height:420 }}>
+    <Card sx={{ maxWidth: 345 , height:380 }}>
       <CardMedia
         component="img"
         height="200"
@@ -33,7 +51,7 @@ function BookCard(props:Props){
         alt={props.title}
       />
       <CardContent>
-        <Typography variant="h5" component="div" align="left">
+        <Typography variant="h6" component="div" align="left">
           {props.title}
         </Typography>
         <Typography variant="body2" color="text.secondary" align="left" sx={{"marginTop":1}}>
@@ -51,13 +69,13 @@ function BookCard(props:Props){
             </Grid>
           </Grid>
 
-        </Typography>
+        </Typography>      
         
 
       </CardContent>
       <CardActions sx={{"margin":0}} >
           {/*<ButtonComponent size="small" sx={{color: 'black'}}><MoreHorizIcon /></ButtonComponent>*/}
-          <ButtonComponent fullWidth={true} sx={{":hover":{bgcolor:"#0365F2",color:"#ffffff"},"margin":0}}>{props.state}</ButtonComponent>               
+          <ButtonComponent onClick={handleClick} fullWidth={true} sx={{":hover":{bgcolor:"#0365F2",color:"#ffffff"},"margin":0}}>{bookState}</ButtonComponent>               
       </CardActions>
     </Card>
   );

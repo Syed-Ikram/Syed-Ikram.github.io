@@ -3,7 +3,7 @@ import React from "react";
 
 const ExploreBanner = ()=>{
     return(
-        <Paper elevation={0} sx={{bgcolor:"#F1F6F4","padding":3,"marginTop":3}}>
+        <Paper elevation={0} sx={{bgcolor:"#F1F6F4","padding":3,"marginTop":3,"marginBottom":3}}>
         <Grid container columnSpacing={10} >
           <Grid item>
             <Typography sx={{"margin":4}} variant="h5" >

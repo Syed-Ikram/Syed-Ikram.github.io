@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { AppBar, Typography,Button,Grid, Toolbar,Menu,Tab,Tabs,Box,Paper,Container} from "@mui/material";
+import { AppBar, Typography,Button,Grid, Toolbar,Menu,Tab,Tabs,Box,Paper, Popover} from "@mui/material";
 import {Search, ArrowDropDown} from "@mui/icons-material";
 
 function NavBar(){
@@ -21,8 +21,8 @@ function NavBar(){
                 <Button variant="primary" size="small"><img src="http://127.0.0.1:8887/Blinklist.png" alt="blinklist"/></Button>
                 <Button variant="primary" size="small"><Search /></Button>
                 <Button variant="primary" size="small" onClick={handleMenu}>Explore<ArrowDropDown /></Button>
-                <Menu anchorEl={openMenu} open={openMenu} onClose={closeMenu} sx={{width:1000}}>
-                    <Paper elevation={0} sx={{width:1500,bgcolor:'#F1F6F4'}} >
+                <Popover anchorEl={openMenu} open={openMenu} onClose={closeMenu} anchorOrigin={{vertical: 'bottom',horizontal: 'left',}} sx={{width:1000}}>
+                    <Paper elevation={0} sx={{width:1800,bgcolor:'#F1F6F4'}} >
                         
                         <Tabs
                             value={value}
@@ -37,7 +37,7 @@ function NavBar(){
                         </Tabs>
                 
                     </Paper>
-                </Menu>
+                </Popover>
                 <Button variant="primary" size="small">My Library</Button>
             </Toolbar>
         </AppBar>
