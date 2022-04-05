@@ -18,9 +18,13 @@ const RenderBooks=(props:Props)=>{
     useEffect(()=>{
         fetch('http://localhost:8000/books')
         .then(res =>res.json())
-        .then(data => setBooks(data))
-    },[])
-    console.log(books);
+        .then(data => {
+            // eslint-disable-next-line eqeqeq
+            if(data != books)
+                setBooks(data)
+            }
+            )
+    },[books])
     return(
         <Grid container spacing={2} wrap="wrap">
         {/* eslint-disable-next-line array-callback-return*/}

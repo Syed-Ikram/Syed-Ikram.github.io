@@ -1,5 +1,5 @@
 import React from "react";
-import { AppBar, Toolbar,Popover,Paper,Typography, Link} from "@mui/material";
+import { AppBar, Toolbar,Popover,Paper, Link} from "@mui/material";
 import {Search, KeyboardArrowDown} from "@mui/icons-material";
 import ButtonComponent from "../../atoms/Button";
 import ExploreTabs from "../ExploreTabs";
@@ -19,8 +19,8 @@ const NavBar =()=>{
     return(            
         <AppBar position="relative" sx={{ bgcolor: "white",color:"black","marginLeft":19}} elevation={0}>
             <Toolbar>
-                <ButtonComponent variant="text" ><img src="http://127.0.0.1:8887/Blinklist.png" alt="blinklist"/></ButtonComponent>
-                <ButtonComponent variant="text" ><Search /></ButtonComponent>
+                <Link underline="none" href="/explore"><img src="http://127.0.0.1:8887/Blinklist.png" alt="blinklist"/></Link>
+                <Link underline="none" href="/explore" sx={{"marginLeft":2,"marginRight":2}}><Search /></Link>
                 <ButtonComponent variant="text" size="large" onClick={handleClick}>Explore<KeyboardArrowDown /></ButtonComponent>
                         <Popover
                         open={open}
@@ -35,7 +35,7 @@ const NavBar =()=>{
                             <ExploreTabs />
                         </Paper>                        
                     </Popover>
-                <ButtonComponent variant="text" size="large">My Library</ButtonComponent>
+                <Link underline="none" href="/" sx={{"marginLeft":2,"marginRight":2}}>My Library</Link>
             </Toolbar>
         </AppBar>
         
