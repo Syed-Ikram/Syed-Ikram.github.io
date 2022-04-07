@@ -7,9 +7,11 @@ interface BookDetails{
     image:string;
     author:string;
     state:string;
+    state2:string;
 }
 interface Props{
     state:string;
+    state2:string;
 }
 
 const RenderBooks=(props:Props)=>{
@@ -39,11 +41,14 @@ const RenderBooks=(props:Props)=>{
             }
             // eslint-disable-next-line eqeqeq
             if(props.state == 'All'){
-                return (
-                    <Grid item xs={12} sm={8} md={4} >
-                    <BookCard key={book.id} id={book.id} author={book.author} title={book.title} pic={book.image} state={book.state}/>
-                    </Grid>
-                )
+                // eslint-disable-next-line eqeqeq
+                if(props.state2==book.state2){
+                    return (
+                        <Grid item xs={12} sm={8} md={4} >
+                        <BookCard key={book.id} id={book.id} author={book.author} title={book.title} pic={book.image} state={book.state}/>
+                        </Grid>
+                    )
+                }
             }
         })
         }

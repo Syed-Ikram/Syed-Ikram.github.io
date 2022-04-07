@@ -1,6 +1,5 @@
 import React from 'react';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
@@ -43,7 +42,7 @@ const BookCard =(props:Props)=>{
   }
 
   return (
-    <Card sx={{ maxWidth: 345 , height:380 }}>
+    <Card sx={{ maxWidth: 345 , height:366 }}>
       <CardMedia
         component="img"
         height="200"
@@ -73,10 +72,8 @@ const BookCard =(props:Props)=>{
         
 
       </CardContent>
-      <CardActions sx={{"margin":0}} >
-          {/*<ButtonComponent size="small" sx={{color: 'black'}}><MoreHorizIcon /></ButtonComponent>*/}
-          <ButtonComponent onClick={handleClick} fullWidth={true} sx={{":hover":{bgcolor:"#0365F2",color:"#ffffff"},"margin":0}}>{bookState}</ButtonComponent>               
-      </CardActions>
+      
+      <ButtonComponent onClick={handleClick} fullWidth={true} sx={{":hover":{bgcolor:"#0365F2",color:"#ffffff"},"margin":0}}>{bookState}</ButtonComponent>
     </Card>
   );
 }

@@ -8,8 +8,7 @@ function App() {
       <Routes>
         <Route path='/' element={<LibPage />}/>
         <Route path='/explore' element={<ExplorePage />}/>
-      </Routes>
-      
+      </Routes>      
     </BrowserRouter>
       
     );

@@ -22,8 +22,8 @@ const LibTabs = ()=> {
             <Tab label="Finished" value="2" />
           </TabList>
         </Box>
-        <TabPanel value="1"><RenderBooks  state='Finished'/></TabPanel>
-        <TabPanel value="2"><RenderBooks  state='Read Again'/></TabPanel>
+        <TabPanel value="1"><RenderBooks  state='Finished' state2='Any'/></TabPanel>
+        <TabPanel value="2"><RenderBooks  state='Read Again' state2='Any'/></TabPanel>
       </TabContext>
     </Box>
   );

@@ -1,7 +1,7 @@
 import { Container, ThemeProvider, Typography } from '@mui/material';
 import React from 'react';
 import Footer from '../../molecules/Footer';
-import LibTabs from '../../organisms/Tabs';
+import LibTabs from '../../organisms/LibTabs';
 import theme from '../../Theme/theme';
 import NavBar from '../../molecules/Navbar';
 
