@@ -6,7 +6,7 @@ const ExploreBanner = ()=>{
         <Paper elevation={0} sx={{bgcolor:"#F1F6F4","padding":3,"marginTop":3,"marginBottom":3}}>
         <Grid container columnSpacing={10} >
           <Grid item>
-            <Typography sx={{"margin":4,'fontWeight':'bold'}} variant="h5" >
+            <Typography sx={{"margin":4,'fontWeight':'700'}} variant="h5" >
             Explore Books on <br></br> entrepreneurship
             </Typography>
             <Typography sx={{"margin":4}} variant="body2" color="text.secondary" >

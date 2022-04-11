@@ -5,6 +5,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import { Grid } from '@mui/material';
+import { Link } from 'react-router-dom'
 import ButtonComponent from '../../atoms/Button';
 
 interface Props{
@@ -67,14 +68,22 @@ const BookCard =(props:Props)=>{
               </Typography>
             </Grid>
           </Grid>
-
-        </Typography>      
+        </Typography>   
         
 
       </CardContent>
+      <Link to="/bookdetail" state={{id:index}}>Page</Link>
       
       <ButtonComponent onClick={handleClick} fullWidth={true} sx={{":hover":{bgcolor:"#0365F2",color:"#ffffff"},"margin":0}}>{bookState}</ButtonComponent>
     </Card>
   );
 }
 export default BookCard;
+/*
+const navigate = useNavigate();
+and then replace history.push('/path') with navigate('/path')
+
+Change history.replace('/path') with navigate('/path', { replace: true })
+
+Want to use state in push/navigate do navigate('/path', { state: { name:'Xyz' }}) 
+*/

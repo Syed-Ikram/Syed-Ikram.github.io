@@ -1,7 +1,7 @@
 import { TextField ,Grid ,Typography} from "@mui/material";
 import React, { useEffect, useState } from "react";
 import {Search} from "@mui/icons-material";
-import BookCard from "../../organisms/BookCard";
+import BookCard from "../BookCard";
 
 interface BookDetails{
   id:number;

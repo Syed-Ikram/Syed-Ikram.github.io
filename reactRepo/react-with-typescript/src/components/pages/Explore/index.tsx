@@ -5,7 +5,7 @@ import theme from '../../Theme/theme';
 import NavBar from '../../molecules/Navbar';
 import ExploreBanner from '../../molecules/ExploreBanner';
 import RenderBooks from '../../organisms/RenderBooks';
-import SearchField from '../../molecules/SearchField';
+import SearchField from '../../organisms/SearchField';
 
 const ExplorePage=()=> {
   return (

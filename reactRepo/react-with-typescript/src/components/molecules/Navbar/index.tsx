@@ -21,7 +21,7 @@ const NavBar =()=>{
                     BackdropProps={{style: {top: "70px"}}}
                     disableScrollLock={true}
                 >
-                    <Paper sx={{position: 'absolute' as 'absolute',"fullwidth":"true",top:'10%',bgcolor:'#F1F6F4'}}>
+                    <Paper sx={{position: 'absolute' as 'absolute',width:'100%',top:'10%',bgcolor:'#F1F6F4'}}>
                             <ExploreTabs />
                     </Paper>
                 </Modal>
