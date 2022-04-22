@@ -1,11 +1,12 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Container, ThemeProvider, Typography, Grid} from '@mui/material';
+import { Container, ThemeProvider, Typography, Grid, Link} from '@mui/material';
 import React,{useState, useEffect} from 'react';
 import Footer from '../../molecules/Footer';
 import theme from '../../Theme/theme';
 import NavBar from '../../molecules/Navbar';
 import { useLocation} from 'react-router-dom';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import ButtonComponent from '../../atoms/Button';
 import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
@@ -41,6 +42,35 @@ const BookDetailPage=()=> {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
   var thisBook:any = book;
+  var bookState = thisBook.state;
+  const handleReadNow = ()=>{
+    bookState = "Finished"
+
+    fetch('http://localhost:8000/books/'+(index.id),{
+      method: 'PATCH',
+      body: JSON.stringify({
+        "state": bookState,
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    }).then((response) => response.json())
+    .then((json) => console.log(json));
+  }
+  const handleFinisedReading = ()=>{
+    bookState = "Read Again"
+
+    fetch('http://localhost:8000/books/'+(index.id),{
+      method: 'PATCH',
+      body: JSON.stringify({
+        "state": bookState,
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    }).then((response) => response.json())
+    .then((json) => console.log(json));
+  }
   return (
     <ThemeProvider theme={theme} >
       <NavBar />
@@ -69,9 +99,15 @@ const BookDetailPage=()=> {
                 </Grid>
               </Grid>
             </Typography>
-            <ButtonComponent sx={{marginRight:1,marginTop:8,color:'#6D787E'}} size='large' variant='outlined' color="secondary">Read now</ButtonComponent>
-            <ButtonComponent sx={{marginRight:1,marginTop:8}} variant='contained' size='large' color="secondary">Finished Reading</ButtonComponent>
-            <ButtonComponent sx={{marginRight:1,marginTop:8,color:'#6D787E'}} variant='text' size='large' color="secondary">Send to Kindle</ButtonComponent>
+            <ButtonComponent sx={{marginRight:1,marginTop:8,borderColor:'#6D787E'}} onClick={handleReadNow} size='large' variant='outlined' color="secondary">
+              <Link href='/' underline="none">Read now</Link>
+            </ButtonComponent>
+            <ButtonComponent sx={{marginRight:1,marginTop:8}} variant='contained' onClick={handleFinisedReading} size='large' color="secondary">
+              <Link href='/' underline="none">Finished Reading</Link>
+            </ButtonComponent>
+            <ButtonComponent sx={{marginRight:1,marginTop:8,color:'#6D787E'}} variant='text' size='large' color="secondary">
+              Send to Kindle <ArrowForwardIcon />
+            </ButtonComponent>
           </Grid>
           <Grid item xs={4}>
             <img src={thisBook.image} alt='pic not found'/>

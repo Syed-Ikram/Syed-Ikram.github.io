@@ -37,7 +37,8 @@ const SearchField=()=>{
                 setBooks(data)
             }
             )
-    },[books,searchValue])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[searchValue])
     return(
       <>
         <TextField 
@@ -59,7 +60,14 @@ const SearchField=()=>{
               if((book.title).startsWith(searchValue)){
                   return (
                       <Grid item xs={12} sm={8} md={4} >
-                      <BookCard key={book.id} id={book.id} author={book.author} title={book.title} pic={book.image} state={book.state}/>
+                      <BookCard 
+                        key={book.id} 
+                        id={book.id} 
+                        author={book.author} 
+                        title={book.title} 
+                        pic={book.image} 
+                        state={book.state} 
+                        renderState=""/>
                       </Grid>
                   )
               }
@@ -67,7 +75,14 @@ const SearchField=()=>{
               if((book.author).startsWith(searchValue)){
                   return (
                       <Grid item xs={12} sm={8} md={4} >
-                      <BookCard key={book.id} id={book.id} author={book.author} title={book.title} pic={book.image} state={book.state}/>
+                      <BookCard 
+                        key={book.id} 
+                        id={book.id} 
+                        author={book.author} 
+                        title={book.title} 
+                        pic={book.image} 
+                        state={book.state} 
+                        renderState=""/>
                       </Grid>
                   )
               }

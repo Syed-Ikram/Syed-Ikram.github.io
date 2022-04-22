@@ -4,6 +4,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import { Grid } from '@mui/material';
 import { Link } from 'react-router-dom'
 import ButtonComponent from '../../atoms/Button';
@@ -14,6 +15,8 @@ interface Props{
     pic:string;
     author:string;
     state:string;
+    renderState:string;
+    modify?:Function;
 }
 
 const BookCard =(props:Props)=>{ 
@@ -23,7 +26,7 @@ const BookCard =(props:Props)=>{
   const handleClick = ()=>{
     // eslint-disable-next-line eqeqeq
     if(bookState == "+ Add to Library")
-      bookState = "Finished"
+      bookState = "+ Add to Library"
     // eslint-disable-next-line eqeqeq
     else if(bookState == "Finished")
       bookState = "Read Again"
@@ -40,10 +43,46 @@ const BookCard =(props:Props)=>{
       },
     }).then((response) => response.json())
     .then((json) => console.log(json));
+    props.modify && props.modify(true);
   }
+  const CardButton=()=>{
+    // eslint-disable-next-line eqeqeq
+    if(props.renderState == "All"){
+    // eslint-disable-next-line eqeqeq
+      if(bookState == '+ Add to Library'){
+        return(
+          <ButtonComponent 
+            onClick={handleClick} 
+            fullWidth={true} 
+            sx={{":hover":{bgcolor:"#0365F2",color:"#ffffff"},"margin":0}}>
+              <Link to="/bookdetail" style={{ textDecoration: 'none' ,color:'#03314B'}} state={{id:index}}>{bookState}</Link>
+          </ButtonComponent>
+        )
+      }
+      else{
+        return(
+          <ButtonComponent 
+            onClick={handleClick} 
+            sx={{"margin":0,float:"right"}}>
+              <Link to="/bookdetail" style={{ textDecoration: 'none' ,color:'#03314B'}} state={{id:index}}><MoreHorizIcon /></Link>
+          </ButtonComponent>
+        )
+      }
+    }
+    else{
+      return(
+        <ButtonComponent 
+          onClick={handleClick} 
+          fullWidth={true} 
+          sx={{":hover":{bgcolor:"#0365F2",color:"#ffffff"},"margin":0}}>
+            {bookState}
+        </ButtonComponent>
+      )
+    }
 
+  }
   return (
-    <Card sx={{ maxWidth: 345 , height:366 }}>
+    <Card sx={{ maxWidth: 345 , height:362 }}>
       <CardMedia
         component="img"
         height="200"
@@ -51,8 +90,8 @@ const BookCard =(props:Props)=>{
         alt={props.title}
       />
       <CardContent>
-        <Typography variant="h6" component="div" align="left">
-          {props.title}
+        <Typography variant="h6" component="div"  sx={{fontSize:18}} align="left">
+        <Link to="/bookdetail" style={{ textDecoration: 'none',color:'#03314B' }} state={{id:index}}>{props.title}</Link>
         </Typography>
         <Typography variant="body2" color="text.secondary" align="left" sx={{"marginTop":1}}>
           {props.author}
@@ -68,13 +107,11 @@ const BookCard =(props:Props)=>{
               </Typography>
             </Grid>
           </Grid>
-        </Typography>   
-        
+        </Typography>  
 
-      </CardContent>
-      <Link to="/bookdetail" state={{id:index}}>Page</Link>
-      
-      <ButtonComponent onClick={handleClick} fullWidth={true} sx={{":hover":{bgcolor:"#0365F2",color:"#ffffff"},"margin":0}}>{bookState}</ButtonComponent>
+      </CardContent> 
+      <CardButton />    
+      <ButtonComponent onClick={handleClick} fullWidth={true} sx={{":hover":{bgcolor:"#0365F2",color:"#ffffff"},"margin":0,borderRadius:0}}>{bookState}</ButtonComponent>
     </Card>
   );
 }

@@ -35,7 +35,7 @@
     {
       "author": "Ryan Holiday, Stephen Hansel",
       "title": "Lives of the Stoics",
-      "state": "Finished",
+      "state": "+ Add to Library",
       "image": "http://127.0.0.1:8887/liveOfTheStoics.png",
       "state2": "Trending blinks",
       "id": 5
@@ -43,7 +43,7 @@
     {
       "author": "Debbie King",
       "title": "Loving Your Business",
-      "state": "Finished",
+      "state": "+ Add to Library",
       "image": "http://127.0.0.1:8887/lovingYourBusiness.png",
       "state2": "Trending blinks",
       "id": 6
@@ -51,7 +51,7 @@
     {
       "author": "Noreena Hertz",
       "title": "The Lonely Century",
-      "state": "Finished",
+      "state": "+ Add to Library",
       "image": "http://127.0.0.1:8887/theLonelyCentruy.png",
       "state2": "Just added",
       "id": 7
@@ -67,7 +67,7 @@
     {
       "author": "James Moore",
       "title": "Dropshipping",
-      "state": "Finished",
+      "state": "+ Add to Library",
       "image": "http://127.0.0.1:8887/dropshipping.png",
       "state2": "Just added",
       "id": 9
@@ -83,7 +83,7 @@
     {
       "author": "Erica Keswin",
       "title": "Bring Your Human to Work",
-      "state": "+ Add to Library",
+      "state": "Finished",
       "image": "http://127.0.0.1:8887/BringYourHumanToWork.png",
       "state2": "Featured audio blinks",
       "id": 11

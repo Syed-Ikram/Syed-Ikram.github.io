@@ -8,7 +8,7 @@ const theme = createTheme({
         secondary:green
     },
     typography:{
-      fontFamily: 'Cera Pro',
+      fontFamily:"'Cera Pro','Roboto',sans-serif",
       button:{
           textTransform:"none"
       }
